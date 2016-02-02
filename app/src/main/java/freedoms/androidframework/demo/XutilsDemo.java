@@ -1,7 +1,5 @@
 package freedoms.androidframework.demo;
 
-import android.util.Log;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +23,6 @@ public class XutilsDemo {
             @Override
             public void onSuccess(PersonInfoBean result) {
                 super.onSuccess(result);
-                Log.e("result", result.toString());
             }
 
             @Override
@@ -33,5 +30,10 @@ public class XutilsDemo {
                 super.onError(ex, isOnCallback);
             }
         });
+    }
+
+    private void postDemo(){
+        String url = "http://";
+        Map<String,String> map=new HashMap<>();
     }
 }

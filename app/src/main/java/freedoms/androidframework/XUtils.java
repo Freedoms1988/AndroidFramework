@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import org.xutils.common.Callback;
 import org.xutils.common.Callback.Cancelable;
 import org.xutils.common.Callback.CommonCallback;
+import org.xutils.http.HttpMethod;
 import org.xutils.http.RequestParams;
 import org.xutils.http.app.ResponseParser;
 import org.xutils.http.request.UriRequest;
@@ -34,9 +35,13 @@ public class XUtils {
     }
 
     /**
-     * 发送post请求
+     * 发送Post请求
      *
+     * @param url 请求地址
+     * @param map 请求body参数
+     * @param callback 请求响应回调
      * @param <T>
+     * @return
      */
     public static <T> Cancelable Post(String url, Map<String, Object> map, CommonCallback<T> callback) {
         RequestParams params = new RequestParams(url);
@@ -50,9 +55,53 @@ public class XUtils {
     }
 
     /**
+     * 发送Put请求
+     *
+     * @param url 请求地址
+     * @param map 请求body参数
+     * @param callback 请求响应回调
+     * @param <T>
+     * @return
+     */
+    public  static <T> Cancelable Put(String url,Map<String,Object> map,CommonCallback<T> callback){
+        RequestParams params = new RequestParams(url);
+        if (null != map){
+            for (Map.Entry<String,Object> entry:map.entrySet()) {
+                params.addParameter(entry.getKey(), entry.getValue());
+            }
+        }
+        Cancelable cancelable = x.http().request(HttpMethod.PUT, params, callback);
+        return  cancelable;
+    }
+
+    /**
+     * 发送Delete请求
+     *
+     * @param url 请求地址
+     * @param map 请求body参数
+     * @param callback 请求响应回调
+     * @param <T>
+     * @return
+     */
+    public static <T> Cancelable Delete(String url,Map<String,Object> map,CommonCallback<T> callback){
+        RequestParams params = new RequestParams(url);
+        if (null != map){
+            for (Map.Entry<String,Object> entry:map.entrySet()){
+                params.addParameter(entry.getKey(),entry.getValue());
+            }
+        }
+        Cancelable cancelable = x.http().request(HttpMethod.DELETE,params,callback);
+        return  cancelable;
+    }
+
+    /**
      * 上传文件
      *
+     * @param url
+     * @param map
+     * @param callback
      * @param <T>
+     * @return
      */
     public static <T> Cancelable UpLoadFile(String url, Map<String, Object> map, CommonCallback<T> callback) {
         RequestParams params = new RequestParams(url);
@@ -69,7 +118,11 @@ public class XUtils {
     /**
      * 下载文件
      *
+     * @param url
+     * @param filepath
+     * @param callback
      * @param <T>
+     * @return
      */
     public static <T> Cancelable DownLoadFile(String url, String filepath, CommonCallback<T> callback) {
         RequestParams params = new RequestParams(url);
@@ -79,6 +132,10 @@ public class XUtils {
         return cancelable;
     }
 
+    /**
+     *
+     * @param <ResultType>
+     */
     public static class RequestCallBack<ResultType> implements Callback.CommonCallback<ResultType> {
         @Override
         public void onSuccess(ResultType result) {
