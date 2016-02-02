@@ -43,10 +43,10 @@ public class XUtils {
      * @param <T>
      * @return
      */
-    public static <T> Cancelable Post(String url, Map<String, Object> map, CommonCallback<T> callback) {
+    public static <T> Cancelable Post(String url, Map<String, String> map, CommonCallback<T> callback) {
         RequestParams params = new RequestParams(url);
         if (null != map) {
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
                 params.addParameter(entry.getKey(), entry.getValue());
             }
         }
@@ -63,10 +63,10 @@ public class XUtils {
      * @param <T>
      * @return
      */
-    public  static <T> Cancelable Put(String url,Map<String,Object> map,CommonCallback<T> callback){
+    public static <T> Cancelable Put(String url,Map<String,String> map,CommonCallback<T> callback){
         RequestParams params = new RequestParams(url);
         if (null != map){
-            for (Map.Entry<String,Object> entry:map.entrySet()) {
+            for (Map.Entry<String,String> entry:map.entrySet()) {
                 params.addParameter(entry.getKey(), entry.getValue());
             }
         }
@@ -83,10 +83,10 @@ public class XUtils {
      * @param <T>
      * @return
      */
-    public static <T> Cancelable Delete(String url,Map<String,Object> map,CommonCallback<T> callback){
+    public static <T> Cancelable Delete(String url,Map<String,String> map,CommonCallback<T> callback){
         RequestParams params = new RequestParams(url);
         if (null != map){
-            for (Map.Entry<String,Object> entry:map.entrySet()){
+            for (Map.Entry<String,String> entry:map.entrySet()){
                 params.addParameter(entry.getKey(),entry.getValue());
             }
         }
@@ -97,9 +97,9 @@ public class XUtils {
     /**
      * 上传文件
      *
-     * @param url
-     * @param map
-     * @param callback
+     * @param url 上传文件地址
+     * @param map 上传文件参数
+     * @param callback 请求响应回调
      * @param <T>
      * @return
      */
@@ -118,9 +118,9 @@ public class XUtils {
     /**
      * 下载文件
      *
-     * @param url
-     * @param filepath
-     * @param callback
+     * @param url 下载文件路径
+     * @param filepath 本地保存路径
+     * @param callback 请求响应回调
      * @param <T>
      * @return
      */
@@ -133,7 +133,7 @@ public class XUtils {
     }
 
     /**
-     *
+     * 请求回调
      * @param <ResultType>
      */
     public static class RequestCallBack<ResultType> implements Callback.CommonCallback<ResultType> {
@@ -149,6 +149,47 @@ public class XUtils {
 
         @Override
         public void onCancelled(CancelledException cex) {
+
+        }
+
+        @Override
+        public void onFinished() {
+
+        }
+    }
+
+    /**
+     * 多媒体文件上传及下载进度回调
+     * @param <ResultType>
+     */
+    public static class RequestProgressCallBack<ResultType> implements Callback.ProgressCallback<ResultType>{
+        @Override
+        public void onSuccess(ResultType resultType) {
+
+        }
+
+        @Override
+        public void onCancelled(CancelledException e) {
+
+        }
+
+        @Override
+        public void onError(Throwable throwable, boolean b) {
+
+        }
+
+        @Override
+        public void onLoading(long l, long l1, boolean b) {
+
+        }
+
+        @Override
+        public void onStarted() {
+
+        }
+
+        @Override
+        public void onWaiting() {
 
         }
 
@@ -179,4 +220,6 @@ public class XUtils {
             return new Gson().fromJson(result, resultClass);
         }
     }
+
+
 }

@@ -34,6 +34,144 @@ public class XutilsDemo {
 
     private void postDemo(){
         String url = "http://";
-        Map<String,String> map=new HashMap<>();
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("username", "1888");
+        map.put("passwd", "123123");
+        XUtils.Post(url, map, new RequestCallBack<Object>() {
+            @Override
+            public void onSuccess(Object result) {
+                super.onSuccess(result);
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                super.onError(ex, isOnCallback);
+            }
+        });
+    }
+
+    private void putDemo() {
+        String url = "http://";
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("username", "1888");
+        map.put("passwd", "123123");
+        XUtils.Put(url, map, new RequestCallBack<Object>() {
+            @Override
+            public void onSuccess(Object result) {
+                super.onSuccess(result);
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                super.onError(ex, isOnCallback);
+            }
+        });
+    }
+
+    private void deleteDemo() {
+        String url = "http://";
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("username", "1888");
+        map.put("passwd", "123123");
+        XUtils.Delete(url, map, new RequestCallBack<Object>() {
+            @Override
+            public void onSuccess(Object result) {
+                super.onSuccess(result);
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                super.onError(ex, isOnCallback);
+            }
+        });
+    }
+
+    private void uploadFileDemo() {
+        //图片上传地址
+        String url = "";
+        Map<String, Object> map = new HashMap<>();
+        //传入自己的相应参数
+        //map.put(key, value);
+        //map.put(key, value);
+        XUtils.UpLoadFile(url, map, new XUtils.RequestProgressCallBack<Object>() {
+            @Override
+            public void onFinished() {
+                super.onFinished();
+            }
+
+            @Override
+            public void onWaiting() {
+                super.onWaiting();
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+                super.onSuccess(o);
+            }
+
+            @Override
+            public void onStarted() {
+                super.onStarted();
+            }
+
+            @Override
+            public void onLoading(long l, long l1, boolean b) {
+                super.onLoading(l, l1, b);
+            }
+
+            @Override
+            public void onCancelled(CancelledException e) {
+                super.onCancelled(e);
+            }
+
+            @Override
+            public void onError(Throwable throwable, boolean b) {
+                super.onError(throwable, b);
+            }
+        });
+    }
+
+    private void downloadFileDemo() {
+        //文件下载地址
+        String url = "";
+        //文件保存在本地的路径
+        String filepath = "";
+        XUtils.DownLoadFile(url, filepath, new XUtils.RequestProgressCallBack<Object>() {
+            @Override
+            public void onFinished() {
+                super.onFinished();
+            }
+
+            @Override
+            public void onWaiting() {
+                super.onWaiting();
+            }
+
+            @Override
+            public void onSuccess(Object o) {
+                super.onSuccess(o);
+            }
+
+            @Override
+            public void onStarted() {
+                super.onStarted();
+            }
+
+            @Override
+            public void onLoading(long l, long l1, boolean b) {
+                super.onLoading(l, l1, b);
+            }
+
+            @Override
+            public void onCancelled(CancelledException e) {
+                super.onCancelled(e);
+            }
+
+            @Override
+            public void onError(Throwable throwable, boolean b) {
+                super.onError(throwable, b);
+            }
+
+        });
     }
 }
