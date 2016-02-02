@@ -25,14 +25,19 @@ public class FHttp {
      *
      * @param <T>
      */
-    public static <T> Callback.Cancelable Get(Context context,String url, Map<String, String> map, Callback.CommonCallback<T> callback) throws CryptorException{
-        FBaseRequestParam params = new FBaseRequestParam(context,url);
-        if (null != map) {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                params.addQueryStringParameter(entry.getKey(), entry.getValue());
+    public static <T> Callback.Cancelable Get(Context context,String url, Map<String, String> map, Callback.CommonCallback<T> callback){
+        Callback.Cancelable cancelable=null;
+        try {
+            FBaseRequestParam params = new FBaseRequestParam(context,url);
+            if (null != map) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    params.addQueryStringParameter(entry.getKey(), entry.getValue());
+                }
             }
+           cancelable = x.http().get(params, callback);
+        }catch (CryptorException e){
+            e.printStackTrace();
         }
-        Callback.Cancelable cancelable = x.http().get(params, callback);
         return cancelable;
     }
 
@@ -45,14 +50,20 @@ public class FHttp {
      * @param <T>
      * @return
      */
-    public static <T> Callback.Cancelable Post(Context context,String url, Map<String, String> map, Callback.CommonCallback<T> callback) throws CryptorException{
-        FBaseRequestParam params = new FBaseRequestParam(context,url);
-        if (null != map) {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                params.addParameter(entry.getKey(), entry.getValue());
+    public static <T> Callback.Cancelable Post(Context context,String url, Map<String, String> map, Callback.CommonCallback<T> callback){
+        Callback.Cancelable cancelable=null;
+        try {
+            FBaseRequestParam params = new FBaseRequestParam(context,url);
+            if (null != map) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    params.addParameter(entry.getKey(), entry.getValue());
+                }
             }
+            cancelable = x.http().post(params, callback);
+        }catch (CryptorException e){
+            e.printStackTrace();
         }
-        Callback.Cancelable cancelable = x.http().post(params, callback);
+
         return cancelable;
     }
 
@@ -65,14 +76,19 @@ public class FHttp {
      * @param <T>
      * @return
      */
-    public static <T> Callback.Cancelable Put(Context context,String url,Map<String,String> map,Callback.CommonCallback<T> callback) throws CryptorException{
-        FBaseRequestParam params = new FBaseRequestParam(context,url);
-        if (null != map){
-            for (Map.Entry<String,String> entry:map.entrySet()) {
-                params.addParameter(entry.getKey(), entry.getValue());
+    public static <T> Callback.Cancelable Put(Context context,String url,Map<String,String> map,Callback.CommonCallback<T> callback){
+        Callback.Cancelable cancelable=null;
+        try {
+            FBaseRequestParam params = new FBaseRequestParam(context,url);
+            if (null != map){
+                for (Map.Entry<String,String> entry:map.entrySet()) {
+                    params.addParameter(entry.getKey(), entry.getValue());
+                }
             }
+            cancelable = x.http().request(HttpMethod.PUT, params, callback);
+        }catch (CryptorException e){
+            e.printStackTrace();
         }
-        Callback.Cancelable cancelable = x.http().request(HttpMethod.PUT, params, callback);
         return  cancelable;
     }
 
@@ -85,14 +101,19 @@ public class FHttp {
      * @param <T>
      * @return
      */
-    public static <T> Callback.Cancelable Delete(Context context,String url,Map<String,String> map,Callback.CommonCallback<T> callback) throws CryptorException{
-        FBaseRequestParam params = new FBaseRequestParam(context,url);
-        if (null != map){
-            for (Map.Entry<String,String> entry:map.entrySet()){
-                params.addParameter(entry.getKey(),entry.getValue());
+    public static <T> Callback.Cancelable Delete(Context context,String url,Map<String,String> map,Callback.CommonCallback<T> callback){
+        Callback.Cancelable cancelable=null;
+        try {
+            FBaseRequestParam params = new FBaseRequestParam(context,url);
+            if (null != map){
+                for (Map.Entry<String,String> entry:map.entrySet()){
+                    params.addParameter(entry.getKey(),entry.getValue());
+                }
             }
+            cancelable = x.http().request(HttpMethod.DELETE, params, callback);
+        }catch (CryptorException e){
+            e.printStackTrace();
         }
-        Callback.Cancelable cancelable = x.http().request(HttpMethod.DELETE, params, callback);
         return  cancelable;
     }
 
@@ -105,15 +126,20 @@ public class FHttp {
      * @param <T>
      * @return
      */
-    public static <T> Callback.Cancelable UpLoadFile(Context context,String url, Map<String, Object> map, Callback.CommonCallback<T> callback) throws CryptorException{
-        FBaseRequestParam params = new FBaseRequestParam(context,url);
-        if (null != map) {
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
-                params.addParameter(entry.getKey(), entry.getValue());
+    public static <T> Callback.Cancelable UpLoadFile(Context context,String url, Map<String, Object> map, Callback.CommonCallback<T> callback){
+        Callback.Cancelable cancelable=null;
+        try {
+            FBaseRequestParam params = new FBaseRequestParam(context,url);
+            if (null != map) {
+                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                    params.addParameter(entry.getKey(), entry.getValue());
+                }
             }
+            params.setMultipart(true);
+            cancelable = x.http().get(params, callback);
+        }catch (CryptorException e){
+            e.printStackTrace();
         }
-        params.setMultipart(true);
-        Callback.Cancelable cancelable = x.http().get(params, callback);
         return cancelable;
     }
 
@@ -126,11 +152,16 @@ public class FHttp {
      * @param <T>
      * @return
      */
-    public static <T> Callback.Cancelable DownLoadFile(Context context,String url, String filepath, Callback.CommonCallback<T> callback) throws CryptorException{
-        FBaseRequestParam params = new FBaseRequestParam(context,url);
-        //设置断点续传params.setAutoResume(true);
-        params.setSaveFilePath(filepath);
-        Callback.Cancelable cancelable = x.http().get(params, callback);
+    public static <T> Callback.Cancelable DownLoadFile(Context context,String url, String filepath, Callback.CommonCallback<T> callback){
+        Callback.Cancelable cancelable=null;
+        try {
+            FBaseRequestParam params = new FBaseRequestParam(context,url);
+            //设置断点续传params.setAutoResume(true);
+            params.setSaveFilePath(filepath);
+            cancelable = x.http().get(params, callback);
+        }catch (CryptorException e){
+            e.printStackTrace();
+        }
         return cancelable;
     }
 

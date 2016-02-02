@@ -1,5 +1,7 @@
 package freedoms.androidframework.demo;
 
+import android.content.Context;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +13,7 @@ import freedoms.androidframework.http.FHttp.RequestCallBack;
  */
 public class XutilsDemo{
 
-    private void getDemo() {
+    private void getDemo(Context context) {
         //本get请求来自于免费测试接口：http://www.k780.com/api/entry.baidu
         String url = "http://api.k780.com:88/?app=idcard.get";
         Map<String, String> map = new HashMap<String,String>();
@@ -19,7 +21,7 @@ public class XutilsDemo{
         map.put("sign", "b59bc3ef6191eb9f747dd4e83c99f2a4");
         map.put("format", "json");
         map.put("idcard", "110101199001011114");
-        FHttp.Get(url, map, new RequestCallBack<PersonInfoBean>() {
+        FHttp.Get(context,url, map, new RequestCallBack<PersonInfoBean>() {
             @Override
             public void onSuccess(PersonInfoBean result) {
                 super.onSuccess(result);
@@ -32,12 +34,12 @@ public class XutilsDemo{
         });
     }
 
-    private void postDemo(){
+    private void postDemo(Context context){
         String url = "http://";
         Map<String, String> map = new HashMap<String, String>();
         map.put("username", "1888");
         map.put("passwd", "123123");
-        FHttp.Post(url, map, new RequestCallBack<Object>() {
+        FHttp.Post(context,url, map, new RequestCallBack<Object>() {
             @Override
             public void onSuccess(Object result) {
                 super.onSuccess(result);
@@ -50,12 +52,12 @@ public class XutilsDemo{
         });
     }
 
-    private void putDemo() {
+    private void putDemo(Context context) {
         String url = "http://";
         Map<String, String> map = new HashMap<String, String>();
         map.put("username", "1888");
         map.put("passwd", "123123");
-        FHttp.Put(url, map, new RequestCallBack<Object>() {
+        FHttp.Put(context,url, map, new RequestCallBack<Object>() {
             @Override
             public void onSuccess(Object result) {
                 super.onSuccess(result);
@@ -68,12 +70,12 @@ public class XutilsDemo{
         });
     }
 
-    private void deleteDemo() {
+    private void deleteDemo(Context context) {
         String url = "http://";
         Map<String, String> map = new HashMap<String, String>();
         map.put("username", "1888");
         map.put("passwd", "123123");
-        FHttp.Delete(url, map, new RequestCallBack<Object>() {
+        FHttp.Delete(context,url, map, new RequestCallBack<Object>() {
             @Override
             public void onSuccess(Object result) {
                 super.onSuccess(result);
@@ -86,14 +88,14 @@ public class XutilsDemo{
         });
     }
 
-    private void uploadFileDemo() {
+    private void uploadFileDemo(Context context) {
         //图片上传地址
         String url = "";
         Map<String, Object> map = new HashMap<>();
         //传入自己的相应参数
         //map.put(key, value);
         //map.put(key, value);
-        FHttp.UpLoadFile(url, map, new FHttp.RequestProgressCallBack<Object>() {
+        FHttp.UpLoadFile(context,url, map, new FHttp.RequestProgressCallBack<Object>() {
             @Override
             public void onFinished() {
                 super.onFinished();
@@ -131,12 +133,12 @@ public class XutilsDemo{
         });
     }
 
-    private void downloadFileDemo() {
+    private void downloadFileDemo(Context context) {
         //文件下载地址
         String url = "";
         //文件保存在本地的路径
         String filepath = "";
-        FHttp.DownLoadFile(url, filepath, new FHttp.RequestProgressCallBack<Object>() {
+        FHttp.DownLoadFile(context,url, filepath, new FHttp.RequestProgressCallBack<Object>() {
             @Override
             public void onFinished() {
                 super.onFinished();
