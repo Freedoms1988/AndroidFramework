@@ -1,12 +1,12 @@
-package freedoms.androidframework;
+package freedoms.androidframework.http;
+
+import android.content.Context;
 
 import com.google.gson.Gson;
 
+import org.cryptonode.jncryptor.CryptorException;
 import org.xutils.common.Callback;
-import org.xutils.common.Callback.Cancelable;
-import org.xutils.common.Callback.CommonCallback;
 import org.xutils.http.HttpMethod;
-import org.xutils.http.RequestParams;
 import org.xutils.http.app.ResponseParser;
 import org.xutils.http.request.UriRequest;
 import org.xutils.x;
@@ -14,23 +14,25 @@ import org.xutils.x;
 import java.lang.reflect.Type;
 import java.util.Map;
 
+import freedoms.androidframework.base.FBaseRequestParam;
+
 /**
- * Created by freedoms on 16/2/1.
+ * Created by freedoms on 16/2/2.
  */
-public class XUtils {
+public class FHttp {
     /**
      * 发送get请求
      *
      * @param <T>
      */
-    public static <T> Cancelable Get(String url, Map<String, String> map, CommonCallback<T> callback) {
-        RequestParams params = new RequestParams(url);
+    public static <T> Callback.Cancelable Get(Context context,String url, Map<String, String> map, Callback.CommonCallback<T> callback) throws CryptorException{
+        FBaseRequestParam params = new FBaseRequestParam(context,url);
         if (null != map) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 params.addQueryStringParameter(entry.getKey(), entry.getValue());
             }
         }
-        Cancelable cancelable = x.http().get(params, callback);
+        Callback.Cancelable cancelable = x.http().get(params, callback);
         return cancelable;
     }
 
@@ -43,14 +45,14 @@ public class XUtils {
      * @param <T>
      * @return
      */
-    public static <T> Cancelable Post(String url, Map<String, String> map, CommonCallback<T> callback) {
-        RequestParams params = new RequestParams(url);
+    public static <T> Callback.Cancelable Post(Context context,String url, Map<String, String> map, Callback.CommonCallback<T> callback) throws CryptorException{
+        FBaseRequestParam params = new FBaseRequestParam(context,url);
         if (null != map) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 params.addParameter(entry.getKey(), entry.getValue());
             }
         }
-        Cancelable cancelable = x.http().post(params, callback);
+        Callback.Cancelable cancelable = x.http().post(params, callback);
         return cancelable;
     }
 
@@ -63,14 +65,14 @@ public class XUtils {
      * @param <T>
      * @return
      */
-    public static <T> Cancelable Put(String url,Map<String,String> map,CommonCallback<T> callback){
-        RequestParams params = new RequestParams(url);
+    public static <T> Callback.Cancelable Put(Context context,String url,Map<String,String> map,Callback.CommonCallback<T> callback) throws CryptorException{
+        FBaseRequestParam params = new FBaseRequestParam(context,url);
         if (null != map){
             for (Map.Entry<String,String> entry:map.entrySet()) {
                 params.addParameter(entry.getKey(), entry.getValue());
             }
         }
-        Cancelable cancelable = x.http().request(HttpMethod.PUT, params, callback);
+        Callback.Cancelable cancelable = x.http().request(HttpMethod.PUT, params, callback);
         return  cancelable;
     }
 
@@ -83,14 +85,14 @@ public class XUtils {
      * @param <T>
      * @return
      */
-    public static <T> Cancelable Delete(String url,Map<String,String> map,CommonCallback<T> callback){
-        RequestParams params = new RequestParams(url);
+    public static <T> Callback.Cancelable Delete(Context context,String url,Map<String,String> map,Callback.CommonCallback<T> callback) throws CryptorException{
+        FBaseRequestParam params = new FBaseRequestParam(context,url);
         if (null != map){
             for (Map.Entry<String,String> entry:map.entrySet()){
                 params.addParameter(entry.getKey(),entry.getValue());
             }
         }
-        Cancelable cancelable = x.http().request(HttpMethod.DELETE,params,callback);
+        Callback.Cancelable cancelable = x.http().request(HttpMethod.DELETE, params, callback);
         return  cancelable;
     }
 
@@ -103,15 +105,15 @@ public class XUtils {
      * @param <T>
      * @return
      */
-    public static <T> Cancelable UpLoadFile(String url, Map<String, Object> map, CommonCallback<T> callback) {
-        RequestParams params = new RequestParams(url);
+    public static <T> Callback.Cancelable UpLoadFile(Context context,String url, Map<String, Object> map, Callback.CommonCallback<T> callback) throws CryptorException{
+        FBaseRequestParam params = new FBaseRequestParam(context,url);
         if (null != map) {
             for (Map.Entry<String, Object> entry : map.entrySet()) {
                 params.addParameter(entry.getKey(), entry.getValue());
             }
         }
         params.setMultipart(true);
-        Cancelable cancelable = x.http().get(params, callback);
+        Callback.Cancelable cancelable = x.http().get(params, callback);
         return cancelable;
     }
 
@@ -124,11 +126,11 @@ public class XUtils {
      * @param <T>
      * @return
      */
-    public static <T> Cancelable DownLoadFile(String url, String filepath, CommonCallback<T> callback) {
-        RequestParams params = new RequestParams(url);
+    public static <T> Callback.Cancelable DownLoadFile(Context context,String url, String filepath, Callback.CommonCallback<T> callback) throws CryptorException{
+        FBaseRequestParam params = new FBaseRequestParam(context,url);
         //设置断点续传params.setAutoResume(true);
         params.setSaveFilePath(filepath);
-        Cancelable cancelable = x.http().get(params, callback);
+        Callback.Cancelable cancelable = x.http().get(params, callback);
         return cancelable;
     }
 
@@ -220,6 +222,4 @@ public class XUtils {
             return new Gson().fromJson(result, resultClass);
         }
     }
-
-
 }

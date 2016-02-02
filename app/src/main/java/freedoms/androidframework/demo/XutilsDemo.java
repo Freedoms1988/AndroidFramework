@@ -3,13 +3,13 @@ package freedoms.androidframework.demo;
 import java.util.HashMap;
 import java.util.Map;
 
-import freedoms.androidframework.XUtils;
-import freedoms.androidframework.XUtils.RequestCallBack;
+import freedoms.androidframework.http.FHttp;
+import freedoms.androidframework.http.FHttp.RequestCallBack;
 
 /**
  * Created by freedoms on 16/2/1.
  */
-public class XutilsDemo {
+public class XutilsDemo{
 
     private void getDemo() {
         //本get请求来自于免费测试接口：http://www.k780.com/api/entry.baidu
@@ -19,7 +19,7 @@ public class XutilsDemo {
         map.put("sign", "b59bc3ef6191eb9f747dd4e83c99f2a4");
         map.put("format", "json");
         map.put("idcard", "110101199001011114");
-        XUtils.Get(url, map, new RequestCallBack<PersonInfoBean>() {
+        FHttp.Get(url, map, new RequestCallBack<PersonInfoBean>() {
             @Override
             public void onSuccess(PersonInfoBean result) {
                 super.onSuccess(result);
@@ -37,7 +37,7 @@ public class XutilsDemo {
         Map<String, String> map = new HashMap<String, String>();
         map.put("username", "1888");
         map.put("passwd", "123123");
-        XUtils.Post(url, map, new RequestCallBack<Object>() {
+        FHttp.Post(url, map, new RequestCallBack<Object>() {
             @Override
             public void onSuccess(Object result) {
                 super.onSuccess(result);
@@ -55,7 +55,7 @@ public class XutilsDemo {
         Map<String, String> map = new HashMap<String, String>();
         map.put("username", "1888");
         map.put("passwd", "123123");
-        XUtils.Put(url, map, new RequestCallBack<Object>() {
+        FHttp.Put(url, map, new RequestCallBack<Object>() {
             @Override
             public void onSuccess(Object result) {
                 super.onSuccess(result);
@@ -73,7 +73,7 @@ public class XutilsDemo {
         Map<String, String> map = new HashMap<String, String>();
         map.put("username", "1888");
         map.put("passwd", "123123");
-        XUtils.Delete(url, map, new RequestCallBack<Object>() {
+        FHttp.Delete(url, map, new RequestCallBack<Object>() {
             @Override
             public void onSuccess(Object result) {
                 super.onSuccess(result);
@@ -93,7 +93,7 @@ public class XutilsDemo {
         //传入自己的相应参数
         //map.put(key, value);
         //map.put(key, value);
-        XUtils.UpLoadFile(url, map, new XUtils.RequestProgressCallBack<Object>() {
+        FHttp.UpLoadFile(url, map, new FHttp.RequestProgressCallBack<Object>() {
             @Override
             public void onFinished() {
                 super.onFinished();
@@ -136,7 +136,7 @@ public class XutilsDemo {
         String url = "";
         //文件保存在本地的路径
         String filepath = "";
-        XUtils.DownLoadFile(url, filepath, new XUtils.RequestProgressCallBack<Object>() {
+        FHttp.DownLoadFile(url, filepath, new FHttp.RequestProgressCallBack<Object>() {
             @Override
             public void onFinished() {
                 super.onFinished();
