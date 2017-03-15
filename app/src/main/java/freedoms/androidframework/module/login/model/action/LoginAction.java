@@ -22,7 +22,7 @@ public class LoginAction implements ILoginAction {
 
     @Override
     public void login(ILoginView iLoginView) {
-        new LoginThread(this.loginHandler,iLoginView.getUsername(),iLoginView.getPassword()).start();
+        new LoginThread(loginHandler,iLoginView.getUsername(),iLoginView.getPassword()).start();
         System.out.println("启动线程");
     }
 
@@ -30,7 +30,7 @@ public class LoginAction implements ILoginAction {
     public void clearUsername() {
         Message message=new Message();
         message.what=ClearHandler.CLEAR_USERNAME;
-        this.clearHandler.sendMessage(message);
+        clearHandler.sendMessage(message);
         System.out.println("清理用户名");
     }
 
@@ -38,7 +38,7 @@ public class LoginAction implements ILoginAction {
     public void clearPassword() {
         Message message=new Message();
         message.what=ClearHandler.CLEAR_PASSWORD;
-        this.clearHandler.sendMessage(message);
+        clearHandler.sendMessage(message);
         System.out.println("清理密码");
     }
 
@@ -64,7 +64,7 @@ public class LoginAction implements ILoginAction {
                 Message msg=new Message();
                 msg.what=LoginHandler.LOGIN_SUCCESS;
                 sleep(2000);
-                this.loginHandler.sendMessage(msg);
+                loginHandler.sendMessage(msg);
                 System.out.println("线程执行完成");
             }catch (Exception e){
                 e.printStackTrace();

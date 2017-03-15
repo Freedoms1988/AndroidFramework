@@ -22,10 +22,10 @@ public class ClearOnClickListener implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.clearusernameBTN:
-                this.loginPresenter.clearUsername();
+                loginPresenter.clearUsername();
                 break;
             case R.id.clearpasswdBTN:
-                this.loginPresenter.clearPassword();
+                loginPresenter.clearPassword();
                 break;
         }
 

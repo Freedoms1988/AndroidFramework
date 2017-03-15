@@ -25,10 +25,10 @@ public class ClearHandler extends Handler {
         super.handleMessage(msg);
         switch (msg.what){
             case CLEAR_USERNAME:
-                this.iLoginView.clearUsername();
+                iLoginView.clearUsername();
                 break;
             case CLEAR_PASSWORD:
-                this.iLoginView.clearPassword();
+                iLoginView.clearPassword();
                 break;
         }
     }

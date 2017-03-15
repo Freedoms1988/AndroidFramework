@@ -23,7 +23,7 @@ public class LoginOnClickListener implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.loginBtn:
-                this.loginPresenter.login();
+                loginPresenter.login();
                 System.out.println("收到点击事件");
         }
 

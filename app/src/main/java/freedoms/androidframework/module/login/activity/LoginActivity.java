@@ -9,7 +9,6 @@ import freedoms.androidframework.R;
 import freedoms.androidframework.base.BaseActivity;
 import freedoms.androidframework.module.login.model.listener.ClearOnClickListener;
 import freedoms.androidframework.module.login.model.listener.LoginOnClickListener;
-import freedoms.androidframework.module.login.presenter.LoginPresenter;
 import freedoms.androidframework.module.login.view.ILoginView;
 
 /**
@@ -22,7 +21,6 @@ public class LoginActivity extends BaseActivity implements ILoginView{
     private Button clearUsernameBTN;
     private Button clearPasswordBTN;
     private Button loginBTN;
-    private LoginPresenter loginPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +44,12 @@ public class LoginActivity extends BaseActivity implements ILoginView{
 
     @Override
     public String getUsername() {
-        return this.usernameET.getText().toString();
+        return usernameET.getText().toString();
     }
 
     @Override
     public String getPassword() {
-        return this.passwordET.getText().toString();
+        return passwordET.getText().toString();
     }
 
     @Override
@@ -66,13 +64,13 @@ public class LoginActivity extends BaseActivity implements ILoginView{
 
     @Override
     public void clearUsername() {
-        this.usernameET.setText("");
+        usernameET.setText("");
         System.out.println("用户名删除成功");
     }
 
     @Override
     public void clearPassword() {
-        this.passwordET.setText("");
+        passwordET.setText("");
         System.out.println("密码删除成功");
     }
 }

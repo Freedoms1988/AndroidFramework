@@ -18,16 +18,16 @@ public class LoginPresenter {
     }
 
     public void login(){
-        this.mLoginAction.login(this.mLoginView);
+        mLoginAction.login(this.mLoginView);
         System.out.println("执行登录");
     }
 
     public void clearUsername(){
-        this.mLoginAction.clearUsername();
+        mLoginAction.clearUsername();
     }
 
     public void clearPassword(){
-        this.mLoginAction.clearPassword();
+        mLoginAction.clearPassword();
     }
 
 }
