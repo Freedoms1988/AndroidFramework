@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <EditText android:id="@+id/usernameET"
+              android:layout_width="match_parent"
+              android:layout_height="44dp"
+              android:hint="请输入用户名"
+    />
+
+    <EditText android:id="@+id/passwordET"
+              android:layout_width="match_parent"
+              android:layout_height="44dp"
+              android:hint="请输入密码"
+              android:layout_below="@id/usernameET"
+    />
+    <Button
+        android:id="@+id/clearusernameBTN"
+        android:layout_width="100dp"
+        android:layout_height="44dp"
+        android:text="清除用户名"
+        android:layout_alignParentRight="true"
+        />
+    <Button
+        android:id="@+id/clearpasswdBTN"
+        android:layout_width="100dp"
+        android:layout_height="44dp"
+        android:text="清除密码"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/usernameET"
+        />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:text="登录"
+        android:layout_below="@id/passwordET"
+    />
+</RelativeLayout>
