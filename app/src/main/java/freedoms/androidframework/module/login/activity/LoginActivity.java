@@ -46,12 +46,12 @@ public class LoginActivity extends BaseActivity implements ILoginView{
 
     @Override
     public String getUsername() {
-        return usernameET.getText().toString();
+        return this.usernameET.getText().toString();
     }
 
     @Override
     public String getPassword() {
-        return passwordET.getText().toString();
+        return this.passwordET.getText().toString();
     }
 
     @Override
@@ -66,13 +66,13 @@ public class LoginActivity extends BaseActivity implements ILoginView{
 
     @Override
     public void clearUsername() {
-        usernameET.setText("");
+        this.usernameET.setText("");
         System.out.println("用户名删除成功");
     }
 
     @Override
     public void clearPassword() {
-        passwordET.setText("");
+        this.passwordET.setText("");
         System.out.println("密码删除成功");
     }
 }

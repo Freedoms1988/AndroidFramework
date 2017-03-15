@@ -16,13 +16,13 @@ public class LoginAction implements ILoginAction {
     private ClearHandler clearHandler;
 
     public LoginAction(ILoginView iLoginView){
-        loginHandler=new LoginHandler(iLoginView);
-        clearHandler=new ClearHandler(iLoginView);
+        this.loginHandler=new LoginHandler(iLoginView);
+        this.clearHandler=new ClearHandler(iLoginView);
     }
 
     @Override
     public void login(ILoginView iLoginView) {
-        new LoginThread(loginHandler,iLoginView.getUsername(),iLoginView.getPassword()).start();
+        new LoginThread(this.loginHandler,iLoginView.getUsername(),iLoginView.getPassword()).start();
         System.out.println("启动线程");
     }
 
@@ -30,7 +30,7 @@ public class LoginAction implements ILoginAction {
     public void clearUsername() {
         Message message=new Message();
         message.what=ClearHandler.CLEAR_USERNAME;
-        clearHandler.sendMessage(message);
+        this.clearHandler.sendMessage(message);
         System.out.println("清理用户名");
     }
 
@@ -38,7 +38,7 @@ public class LoginAction implements ILoginAction {
     public void clearPassword() {
         Message message=new Message();
         message.what=ClearHandler.CLEAR_PASSWORD;
-        clearHandler.sendMessage(message);
+        this.clearHandler.sendMessage(message);
         System.out.println("清理密码");
     }
 
@@ -61,11 +61,11 @@ public class LoginAction implements ILoginAction {
             super.run();
             try {
                 System.out.println("用户名："+this.mUsername+"  密码："+this.mPassword);
-                sleep(2000);
-                System.out.println("线程执行完成");
                 Message msg=new Message();
                 msg.what=LoginHandler.LOGIN_SUCCESS;
+                sleep(2000);
                 this.loginHandler.sendMessage(msg);
+                System.out.println("线程执行完成");
             }catch (Exception e){
                 e.printStackTrace();
             }

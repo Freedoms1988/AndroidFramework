@@ -8,9 +8,6 @@ public class UserBean{
     private String username;
     private String password;
 
-    public String getPassword() {
-        return password;
-    }
 
     public void setPassword(String password) {
         this.password = password;
@@ -21,6 +18,10 @@ public class UserBean{
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
+    }
+
+    public String getPassword() {
+        return this.password;
     }
 }

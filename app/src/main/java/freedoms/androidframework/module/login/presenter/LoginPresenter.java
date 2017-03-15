@@ -14,20 +14,20 @@ public class LoginPresenter {
 
     public LoginPresenter(ILoginView iLoginView){
         this.mLoginView=iLoginView;
-        mLoginAction=new LoginAction(iLoginView);
+        this.mLoginAction=new LoginAction(iLoginView);
     }
 
     public void login(){
-        mLoginAction.login(this.mLoginView);
+        this.mLoginAction.login(this.mLoginView);
         System.out.println("执行登录");
     }
 
     public void clearUsername(){
-        mLoginAction.clearUsername();
+        this.mLoginAction.clearUsername();
     }
 
     public void clearPassword(){
-        mLoginAction.clearPassword();
+        this.mLoginAction.clearPassword();
     }
 
 }

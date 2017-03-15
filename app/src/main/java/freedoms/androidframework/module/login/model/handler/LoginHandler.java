@@ -25,10 +25,10 @@ public class LoginHandler extends Handler {
         super.handleMessage(msg);
         switch (msg.what){
             case LOGIN_SUCCESS:
-                iLoginView.loginSuccess();
+                this.iLoginView.loginSuccess();
                 break;
             case LOGIN_FAILURE:
-                iLoginView.loginFailure();
+                this.iLoginView.loginFailure();
                 break;
         }
     }
