@@ -1,4 +1,4 @@
-package freedoms.mymvpframework.bean;
+package freedoms.androidframework.bean;
 
 /**
  * Created by freedoms on 2017/3/13.

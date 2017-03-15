@@ -1,16 +1,16 @@
-package freedoms.mymvpframework.module.login.activity;
+package freedoms.androidframework.module.login.activity;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import freedoms.mymvpframework.R;
-import freedoms.mymvpframework.base.BaseActivity;
-import freedoms.mymvpframework.module.login.model.listener.ClearOnClickListener;
-import freedoms.mymvpframework.module.login.model.listener.LoginOnClickListener;
-import freedoms.mymvpframework.module.login.presenter.LoginPresenter;
-import freedoms.mymvpframework.module.login.view.ILoginView;
+import freedoms.androidframework.R;
+import freedoms.androidframework.base.BaseActivity;
+import freedoms.androidframework.module.login.model.listener.ClearOnClickListener;
+import freedoms.androidframework.module.login.model.listener.LoginOnClickListener;
+import freedoms.androidframework.module.login.presenter.LoginPresenter;
+import freedoms.androidframework.module.login.view.ILoginView;
 
 /**
  * Created by freedoms on 2017/3/13.

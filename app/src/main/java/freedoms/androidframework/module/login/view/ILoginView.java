@@ -1,4 +1,4 @@
-package freedoms.mymvpframework.module.login.view;
+package freedoms.androidframework.module.login.view;
 
 /**
  * Created by freedoms on 2017/3/13.

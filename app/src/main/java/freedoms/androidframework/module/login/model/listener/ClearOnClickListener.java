@@ -1,10 +1,10 @@
-package freedoms.mymvpframework.module.login.model.listener;
+package freedoms.androidframework.module.login.model.listener;
 
 import android.view.View;
 
-import freedoms.mymvpframework.R;
-import freedoms.mymvpframework.module.login.presenter.LoginPresenter;
-import freedoms.mymvpframework.module.login.view.ILoginView;
+import freedoms.androidframework.R;
+import freedoms.androidframework.module.login.presenter.LoginPresenter;
+import freedoms.androidframework.module.login.view.ILoginView;
 
 /**
  * Created by freedoms on 2017/3/14.

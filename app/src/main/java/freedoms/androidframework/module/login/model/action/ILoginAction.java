@@ -1,6 +1,6 @@
-package freedoms.mymvpframework.module.login.model.action;
+package freedoms.androidframework.module.login.model.action;
 
-import freedoms.mymvpframework.module.login.view.ILoginView;
+import freedoms.androidframework.module.login.view.ILoginView;
 
 /**
  * Created by freedoms on 2017/3/13.

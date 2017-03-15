@@ -1,4 +1,4 @@
-package freedoms.mymvpframework;
+package freedoms.androidframework;
 
 import org.junit.Test;
 

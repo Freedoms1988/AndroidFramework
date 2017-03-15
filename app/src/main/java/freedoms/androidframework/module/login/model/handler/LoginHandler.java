@@ -1,9 +1,9 @@
-package freedoms.mymvpframework.module.login.model.handler;
+package freedoms.androidframework.module.login.model.handler;
 
 import android.os.Handler;
 import android.os.Message;
 
-import freedoms.mymvpframework.module.login.view.ILoginView;
+import freedoms.androidframework.module.login.view.ILoginView;
 
 /**
  * Created by freedoms on 2017/3/14.

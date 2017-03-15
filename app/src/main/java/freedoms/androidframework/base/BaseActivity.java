@@ -1,4 +1,4 @@
-package freedoms.mymvpframework.base;
+package freedoms.androidframework.base;
 
 import android.app.Activity;
 
