@@ -6,7 +6,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import freedoms.androidframework.R;
-import freedoms.androidframework.base.BaseActivity;
+import freedoms.androidframework.base.FBaseActivity;
 import freedoms.androidframework.module.login.model.listener.ClearOnClickListener;
 import freedoms.androidframework.module.login.model.listener.LoginOnClickListener;
 import freedoms.androidframework.module.login.view.ILoginView;
@@ -15,7 +15,7 @@ import freedoms.androidframework.module.login.view.ILoginView;
  * Created by freedoms on 2017/3/13.
  */
 
-public class LoginActivity extends BaseActivity implements ILoginView{
+public class LoginActivity extends FBaseActivity implements ILoginView{
     private EditText usernameET;
     private EditText passwordET;
     private Button clearUsernameBTN;
