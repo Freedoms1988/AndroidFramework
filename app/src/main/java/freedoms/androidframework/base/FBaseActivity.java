@@ -8,4 +8,5 @@ import android.app.Activity;
 
 public class FBaseActivity extends Activity{
 
+
 }

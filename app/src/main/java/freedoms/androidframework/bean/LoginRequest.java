@@ -7,4 +7,5 @@ import freedoms.androidframework.base.FBaseRequest;
  */
 
 public class LoginRequest extends FBaseRequest {
+
 }
