@@ -60,35 +60,4 @@ public class LoginAction implements ILoginAction {
         clearHandler.sendMessage(message);
         System.out.println("清理密码");
     }
-
-
-
-//    class LoginThread extends Thread{
-//
-//        private String mUsername;
-//        private String mPassword;
-//        private LoginHandler loginHandler;
-//
-//        public LoginThread(LoginHandler loginHandler,String username,String password){
-//            this.loginHandler=loginHandler;
-//            this.mUsername=username;
-//            this.mPassword=password;
-//        }
-//
-//        @Override
-//        public void run() {
-//            super.run();
-//            try {
-//                System.out.println("用户名："+this.mUsername+"  密码："+this.mPassword);
-//                Message msg=new Message();
-//                msg.what=LoginHandler.LOGIN_SUCCESS;
-//                sleep(2000);
-//                loginHandler.sendMessage(msg);
-//                System.out.println("线程执行完成");
-//            }catch (Exception e){
-//                e.printStackTrace();
-//            }
-//
-//        }
-//    }
 }
