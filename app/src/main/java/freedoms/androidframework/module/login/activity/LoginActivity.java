@@ -10,6 +10,7 @@ import freedoms.androidframework.base.FBaseActivity;
 import freedoms.androidframework.module.login.model.listener.ClearOnClickListener;
 import freedoms.androidframework.module.login.model.listener.LoginOnClickListener;
 import freedoms.androidframework.module.login.iview.ILoginView;
+import freedoms.androidframework.tools.hud.MKHudLoading;
 
 /**
  * Created by freedoms on 2017/3/13.
@@ -72,5 +73,15 @@ public class LoginActivity extends FBaseActivity implements ILoginView{
     public void clearPassword() {
         passwordET.setText("");
         System.out.println("密码删除成功");
+    }
+
+    @Override
+    public void showLoading() {
+        MKHudLoading.getInstance().showLoading(LoginActivity.this);
+    }
+
+    @Override
+    public void dismissLoading() {
+        MKHudLoading.getInstance().dismissLoading();
     }
 }

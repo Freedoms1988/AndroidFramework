@@ -11,4 +11,6 @@ public interface ILoginView {
     String getPassword();
     void clearUsername();
     void clearPassword();
+    void showLoading();
+    void dismissLoading();
 }

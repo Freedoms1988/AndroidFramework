@@ -18,6 +18,7 @@ public class LoginPresenter {
     }
 
     public void login(){
+        mLoginView.showLoading();
         mLoginAction.login(this.mLoginView);
         System.out.println("执行登录");
     }
