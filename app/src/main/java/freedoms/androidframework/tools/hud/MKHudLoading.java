@@ -6,17 +6,17 @@ import android.text.TextUtils;
 import com.kaopiz.kprogresshud.KProgressHUD;
 
 public class MKHudLoading {
-    private static MKHudLoading mkHudLoding;
+    private static MKHudLoading instance;
 
     private KProgressHUD kProgressHUD;
 
     public boolean isShow;
 
     public static MKHudLoading getInstance(){
-        if (mkHudLoding==null){
-            mkHudLoding=new MKHudLoading();
+        if (instance==null){
+            instance=new MKHudLoading();
         }
-        return mkHudLoding;
+        return instance;
     }
 
     public void showHud(Context context, String message, boolean isCancel) {
