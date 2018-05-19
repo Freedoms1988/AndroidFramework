@@ -4,7 +4,7 @@ import android.view.View;
 
 import freedoms.androidframework.R;
 import freedoms.androidframework.module.login.presenter.LoginPresenter;
-import freedoms.androidframework.module.login.view.ILoginView;
+import freedoms.androidframework.module.login.iview.ILoginView;
 
 /**
  * Created by freedoms on 2017/3/14.

@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import freedoms.androidframework.module.login.model.handler.ClearHandler;
 import freedoms.androidframework.module.login.model.handler.LoginHandler;
-import freedoms.androidframework.module.login.view.ILoginView;
+import freedoms.androidframework.module.login.iview.ILoginView;
 import freedoms.androidframework.tools.fokhttp.FOkHttpClient;
 import freedoms.androidframework.tools.fokhttp.FRequestCallBack;
 import okhttp3.Call;
