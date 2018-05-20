@@ -31,6 +31,6 @@ public class LoginHandler extends Handler {
                 iLoginView.loginFailure();
                 break;
         }
-        iLoginView.dismissLoading();
+        iLoginView.dismissHudLoading();
     }
 }

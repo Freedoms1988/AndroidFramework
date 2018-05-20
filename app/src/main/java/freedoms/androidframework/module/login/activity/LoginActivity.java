@@ -76,12 +76,12 @@ public class LoginActivity extends FBaseActivity implements ILoginView{
     }
 
     @Override
-    public void showLoading() {
+    public void showHudLoading() {
         MKHudLoading.getInstance().showLoading(LoginActivity.this);
     }
 
     @Override
-    public void dismissLoading() {
+    public void dismissHudLoading() {
         MKHudLoading.getInstance().dismissLoading();
     }
 }
