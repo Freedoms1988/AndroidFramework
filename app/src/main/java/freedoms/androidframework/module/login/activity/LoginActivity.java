@@ -10,7 +10,7 @@ import freedoms.androidframework.base.FBaseActivity;
 import freedoms.androidframework.module.login.model.listener.ClearOnClickListener;
 import freedoms.androidframework.module.login.model.listener.LoginOnClickListener;
 import freedoms.androidframework.module.login.iview.ILoginView;
-import freedoms.androidframework.tools.hud.MKHudLoading;
+import freedoms.androidframework.tools.hud.FHudLoading;
 
 /**
  * Created by freedoms on 2017/3/13.
@@ -77,11 +77,11 @@ public class LoginActivity extends FBaseActivity implements ILoginView{
 
     @Override
     public void showHudLoading() {
-        MKHudLoading.getInstance().showLoading(LoginActivity.this);
+        FHudLoading.getInstance().showLoading(LoginActivity.this);
     }
 
     @Override
     public void dismissHudLoading() {
-        MKHudLoading.getInstance().dismissLoading();
+        FHudLoading.getInstance().dismissLoading();
     }
 }

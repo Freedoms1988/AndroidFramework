@@ -5,14 +5,14 @@ import android.text.TextUtils;
 
 import com.kaopiz.kprogresshud.KProgressHUD;
 
-public class MKHudLoading {
-    private static MKHudLoading instance;
+public class FHudLoading {
+    private static FHudLoading instance;
 
     private KProgressHUD kProgressHUD;
 
-    public static MKHudLoading getInstance(){
+    public static FHudLoading getInstance(){
         if (instance==null){
-            instance=new MKHudLoading();
+            instance=new FHudLoading();
         }
         return instance;
     }
