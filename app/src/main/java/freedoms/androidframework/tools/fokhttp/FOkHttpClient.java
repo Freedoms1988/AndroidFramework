@@ -4,6 +4,8 @@ package freedoms.androidframework.tools.fokhttp;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
@@ -23,13 +25,33 @@ public class FOkHttpClient implements IFOkHttpClient {
 
 	private static OkHttpClient client;
 
-	private static final MediaType JSON = MediaType.parse("applaction/json;charset=utf-8");
+	private static final MediaType MEDIA_TYPE_JSON = MediaType.parse("applaction/json;charset=utf-8");
 
-	private static final MediaType MARKDOWN = MediaType.parse("text/x-markdown; charset=utf-8");
+	private static final MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("text/x-markdown;charset=utf-8");
 
-	private static final MediaType IMAGE = MediaType.parse("image/png");
+	private static final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
+
+	private static final MediaType MEDIA_TYPE_JPEG = MediaType.parse("image/jpeg");
+
+	private static final MediaType MEDIA_TYPE_GIF = MediaType.parse("image/gif");
+
+	private static final MediaType MEDIA_TYPE_PLAIN = MediaType.parse("text/plain");
+
+	private static final MediaType MEDIA_TYPE_XHTML = MediaType.parse("application/xhtml+xml");
+
+	private static final MediaType MEDIA_TYPE_XML = MediaType.parse("application/xml");
+
+	private static final MediaType MEDIA_TYPE_ATOM_XML = MediaType.parse("application/atom+xml");
+
+	private static final MediaType MEDIA_TYPE_PDF = MediaType.parse("application/pdf");
+
+	private static final MediaType MEDIA_TYPE_WORD = MediaType.parse("application/msword");
+
+	private static final MediaType MEDIA_TYPE_STREAM = MediaType.parse("application/octet-stream");
+
 
 	private FOkHttpClient() {
+
 	}
 
 	public static FOkHttpClient getInstance() {
@@ -37,7 +59,10 @@ public class FOkHttpClient implements IFOkHttpClient {
 			synchronized (FOkHttpClient.class) {
 				if (instance == null) {
 					instance = new FOkHttpClient();
-					client = new OkHttpClient();
+					client = new OkHttpClient.Builder()
+							.connectTimeout(10, TimeUnit.SECONDS)
+							.writeTimeout(10,TimeUnit.SECONDS)
+							.readTimeout(10,TimeUnit.SECONDS).build();
 				}
 			}
 		}
@@ -63,7 +88,7 @@ public class FOkHttpClient implements IFOkHttpClient {
 
 	@Override
 	public void postWithJSON(String url, FBaseRequest request, final FRequestCallBack callBack) {
-		RequestBody requestBody = RequestBody.create(JSON, requestToJson(request));
+		RequestBody requestBody = RequestBody.create(MEDIA_TYPE_JSON, requestToJson(request));
 		final Request postRequest = new Request.Builder().url(url).post(requestBody).build();
 		Call call = client.newCall(postRequest);
 		call.enqueue(new Callback() {
@@ -81,7 +106,7 @@ public class FOkHttpClient implements IFOkHttpClient {
 
 	@Override
 	public void putWithJSON(String url, FBaseRequest request, final FRequestCallBack callBack) {
-		RequestBody requestBody=RequestBody.create(JSON,requestToJson(request));
+		RequestBody requestBody=RequestBody.create(MEDIA_TYPE_JSON,requestToJson(request));
 		final Request putRequest=new Request.Builder().url(url).put(requestBody).build();
 		Call call=client.newCall(putRequest);
 		call.enqueue(new Callback() {
@@ -99,7 +124,7 @@ public class FOkHttpClient implements IFOkHttpClient {
 
 	@Override
 	public void deleteWithJSON(String url, FBaseRequest request, final FRequestCallBack callBack) {
-		RequestBody requestBody=RequestBody.create(JSON,requestToJson(request));
+		RequestBody requestBody=RequestBody.create(MEDIA_TYPE_JSON,requestToJson(request));
 		final Request deleteRequest=new Request.Builder().url(url).delete(requestBody).build();
 		Call call=client.newCall(deleteRequest);
 		call.enqueue(new Callback() {
