@@ -3,7 +3,7 @@ apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion '25.0.2'
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId 'freedoms.androidframework'
         minSdkVersion 19
@@ -23,11 +23,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:24.0.+'
-    compile 'com.squareup.okhttp3:okhttp:3.6.+'
-    compile 'com.google.code.gson:gson:2.8.+'
-    compile 'org.greenrobot:greendao:3.2.+'
-    compile 'org.greenrobot:eventbus:3.0.0+'
-    compile 'com.kaopiz:kprogresshud:1.0.+'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:24.0.+'
+    implementation 'com.squareup.okhttp3:okhttp:3.6.+'
+    implementation 'com.google.code.gson:gson:2.8.+'
+    implementation 'org.greenrobot:greendao:3.2.+'
+    implementation 'org.greenrobot:eventbus:3.0.0+'
+    implementation 'com.kaopiz:kprogresshud:1.0.+'
 }
