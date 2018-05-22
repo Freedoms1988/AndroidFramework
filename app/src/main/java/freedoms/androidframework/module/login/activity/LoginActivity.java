@@ -1,6 +1,7 @@
 package freedoms.androidframework.module.login.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -44,6 +45,12 @@ public class LoginActivity extends FBaseActivity implements ILoginView{
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        dismissHudLoading();
+    }
+
+    @Override
     public String getUsername() {
         return usernameET.getText().toString();
     }
@@ -55,24 +62,24 @@ public class LoginActivity extends FBaseActivity implements ILoginView{
 
     @Override
     public void loginSuccess() {
-        Toast.makeText(LoginActivity.this, "模拟登录成功", Toast.LENGTH_SHORT).show();
+        Log.d("freedoms","模拟登录成功");
     }
 
     @Override
     public void loginFailure() {
-        Toast.makeText(LoginActivity.this,"模拟登录失败",Toast.LENGTH_SHORT).show();
+        Log.d("freedoms","模拟登录失败");
     }
 
     @Override
     public void clearUsername() {
         usernameET.setText("");
-        System.out.println("用户名删除成功");
+        Log.d("freedoms","用户名删除成功");
     }
 
     @Override
     public void clearPassword() {
         passwordET.setText("");
-        System.out.println("密码删除成功");
+        Log.d("freedoms","密码删除成功");
     }
 
     @Override

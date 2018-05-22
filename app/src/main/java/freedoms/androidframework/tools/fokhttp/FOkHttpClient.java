@@ -4,10 +4,14 @@ package freedoms.androidframework.tools.fokhttp;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import freedoms.androidframework.tools.fokhttp.log.FOkHttpLogInterceptor;
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -59,10 +63,11 @@ public class FOkHttpClient implements IFOkHttpClient {
 			synchronized (FOkHttpClient.class) {
 				if (instance == null) {
 					instance = new FOkHttpClient();
-					client = new OkHttpClient.Builder()
-							.connectTimeout(10, TimeUnit.SECONDS)
-							.writeTimeout(10,TimeUnit.SECONDS)
-							.readTimeout(10,TimeUnit.SECONDS).build();
+					client = new OkHttpClient.Builder().addInterceptor(new FOkHttpLogInterceptor())
+							.connectTimeout(1000, TimeUnit.SECONDS)
+							.writeTimeout(1000,TimeUnit.SECONDS)
+							.readTimeout(1000,TimeUnit.SECONDS).build();
+
 				}
 			}
 		}

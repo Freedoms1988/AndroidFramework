@@ -1,6 +1,7 @@
 package freedoms.androidframework.module.login.model.action;
 
 import android.os.Message;
+import android.util.Log;
 
 import java.io.IOException;
 
@@ -28,7 +29,7 @@ public class LoginAction implements ILoginAction {
 
     @Override
     public void login(ILoginView iLoginView) {
-        FOkHttpClient.getInstance().getWithJSON("https://www.baidu.com",new FRequestCallBack(){
+        FOkHttpClient.getInstance().getWithJSON("http://www.moko.cc",new FRequestCallBack(){
             @Override
             public void onFailure(Call call, IOException e) {
                 Message msg=new Message();
@@ -50,7 +51,7 @@ public class LoginAction implements ILoginAction {
         Message message=new Message();
         message.what=ClearHandler.CLEAR_USERNAME;
         clearHandler.sendMessage(message);
-        System.out.println("清理用户名");
+        Log.d("freedoms","清理用户名");
     }
 
     @Override
@@ -58,6 +59,6 @@ public class LoginAction implements ILoginAction {
         Message message=new Message();
         message.what=ClearHandler.CLEAR_PASSWORD;
         clearHandler.sendMessage(message);
-        System.out.println("清理密码");
+        Log.d("freedoms","清理密码");
     }
 }

@@ -1,6 +1,7 @@
 package freedoms.androidframework.module.login.model.listener;
 
 
+import android.util.Log;
 import android.view.View;
 
 import freedoms.androidframework.R;
@@ -24,7 +25,7 @@ public class LoginOnClickListener implements View.OnClickListener{
         switch (v.getId()){
             case R.id.loginBtn:
                 loginPresenter.login();
-                System.out.println("收到点击事件");
+                Log.d("freedoms","收到点击事件");
         }
 
     }

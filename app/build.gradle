@@ -29,5 +29,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.+'
     implementation 'org.greenrobot:greendao:3.2.+'
     implementation 'org.greenrobot:eventbus:3.0.+'
-    implementation 'com.kaopiz:kprogresshud:1.0.+'
+    compile 'com.kaopiz:kprogresshud:1.0.+'
 }

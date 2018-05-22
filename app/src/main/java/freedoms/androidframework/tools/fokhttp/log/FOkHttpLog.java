@@ -6,4 +6,14 @@ package freedoms.androidframework.tools.fokhttp.log;
 
 public class FOkHttpLog implements IFOkHttpLog{
 
+	private static FOkHttpLog instance;
+
+	public static FOkHttpLog getInstance(){
+		if(instance==null){
+			synchronized (FOkHttpLog.class){
+				instance=new FOkHttpLog();
+			}
+		}
+		return instance;
+	}
 }
