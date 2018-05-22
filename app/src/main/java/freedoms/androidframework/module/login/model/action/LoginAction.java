@@ -10,6 +10,7 @@ import freedoms.androidframework.module.login.model.handler.LoginHandler;
 import freedoms.androidframework.module.login.iview.ILoginView;
 import freedoms.androidframework.tools.fokhttp.FOkHttpClient;
 import freedoms.androidframework.tools.fokhttp.FRequestCallBack;
+import freedoms.androidframework.tools.log.FLog;
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -51,7 +52,7 @@ public class LoginAction implements ILoginAction {
         Message message=new Message();
         message.what=ClearHandler.CLEAR_USERNAME;
         clearHandler.sendMessage(message);
-        Log.d("freedoms","清理用户名");
+        FLog.debug("清理用户名");
     }
 
     @Override
@@ -59,6 +60,6 @@ public class LoginAction implements ILoginAction {
         Message message=new Message();
         message.what=ClearHandler.CLEAR_PASSWORD;
         clearHandler.sendMessage(message);
-        Log.d("freedoms","清理密码");
+        FLog.debug("清理密码");
     }
 }

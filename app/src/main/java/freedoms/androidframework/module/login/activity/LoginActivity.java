@@ -12,6 +12,7 @@ import freedoms.androidframework.module.login.model.listener.ClearOnClickListene
 import freedoms.androidframework.module.login.model.listener.LoginOnClickListener;
 import freedoms.androidframework.module.login.iview.ILoginView;
 import freedoms.androidframework.tools.hud.FHudLoading;
+import freedoms.androidframework.tools.log.FLog;
 
 /**
  * Created by freedoms on 2017/3/13.
@@ -62,24 +63,24 @@ public class LoginActivity extends FBaseActivity implements ILoginView{
 
     @Override
     public void loginSuccess() {
-        Log.d("freedoms","模拟登录成功");
+        FLog.debug("模拟登录成功");
     }
 
     @Override
     public void loginFailure() {
-        Log.d("freedoms","模拟登录失败");
+        FLog.debug("模拟登录失败");
     }
 
     @Override
     public void clearUsername() {
         usernameET.setText("");
-        Log.d("freedoms","用户名删除成功");
+        FLog.debug("用户名删除成功");
     }
 
     @Override
     public void clearPassword() {
         passwordET.setText("");
-        Log.d("freedoms","密码删除成功");
+        FLog.debug("密码删除成功");
     }
 
     @Override

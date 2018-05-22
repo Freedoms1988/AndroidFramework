@@ -7,6 +7,7 @@ import android.view.View;
 import freedoms.androidframework.R;
 import freedoms.androidframework.module.login.presenter.LoginPresenter;
 import freedoms.androidframework.module.login.iview.ILoginView;
+import freedoms.androidframework.tools.log.FLog;
 
 /**
  * Created by freedoms on 2017/3/13.
@@ -25,7 +26,7 @@ public class LoginOnClickListener implements View.OnClickListener{
         switch (v.getId()){
             case R.id.loginBtn:
                 loginPresenter.login();
-                Log.d("freedoms","收到点击事件");
+                FLog.debug("收到点击事件");
         }
 
     }
