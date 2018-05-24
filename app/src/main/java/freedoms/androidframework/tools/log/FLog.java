@@ -8,25 +8,40 @@ import android.util.Log;
  * @Date 2018/5/22
  * @Decription
  **/
-public class FLog {
+public class FLog implements IFlog{
 
-	public static void debug(String string){
+	private static FLog instance;
+
+	private FLog(){
+
+	}
+
+	public static FLog getInstance(){
+		if (instance==null){
+			synchronized (FLog.class){
+				instance=new FLog();
+			}
+		}
+		return instance;
+	}
+
+	public void debug(String string){
 		Log.d("freedoms",string);
 	}
 
-	public static void error(String string){
+	public void error(String string){
 		Log.e("freedoms",string);
 	}
 
-	public static void info(String string){
+	public void info(String string){
 		Log.i("freedoms",string);
 	}
 
-	public static void verbose(String string){
+	public void verbose(String string){
 		Log.v("freedoms",string);
 	}
 
-	public static void warn(String string){
+	public void warn(String string){
 		Log.w("freedoms",string);
 	}
 

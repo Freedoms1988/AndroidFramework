@@ -1,8 +1,11 @@
 package freedoms.androidframework.bean;
 
 /**
- * Created by freedoms on 2017/3/13.
- */
+ * @Class UserBean
+ * @Auther freedoms
+ * @Date 2018/5/23
+ * @Decription
+ **/
 
 public class UserBean{
     private String username;

@@ -7,15 +7,18 @@ import java.io.IOException;
 import freedoms.androidframework.module.login.model.handler.ClearHandler;
 import freedoms.androidframework.module.login.model.handler.LoginHandler;
 import freedoms.androidframework.module.login.iview.ILoginView;
-import freedoms.androidframework.tools.fokhttp.FOkHttpClient;
-import freedoms.androidframework.tools.fokhttp.FRequestCallBack;
+import freedoms.androidframework.tools.fokhttp.http.FOkHttpClient;
+import freedoms.androidframework.tools.fokhttp.http.FRequestCallBack;
 import freedoms.androidframework.tools.log.FLog;
 import okhttp3.Call;
 import okhttp3.Response;
 
 /**
- * Created by freedoms on 2017/3/13.
- */
+ * @Class LoginAction
+ * @Auther freedoms
+ * @Date 2018/5/23
+ * @Decription
+ **/
 
 public class LoginAction implements ILoginAction {
 
@@ -51,7 +54,7 @@ public class LoginAction implements ILoginAction {
         Message message=new Message();
         message.what=ClearHandler.CLEAR_USERNAME;
         clearHandler.sendMessage(message);
-        FLog.debug("清理用户名");
+        FLog.getInstance().debug("清理用户名");
     }
 
     @Override
@@ -59,6 +62,6 @@ public class LoginAction implements ILoginAction {
         Message message=new Message();
         message.what=ClearHandler.CLEAR_PASSWORD;
         clearHandler.sendMessage(message);
-        FLog.debug("清理密码");
+        FLog.getInstance().debug("清理密码");
     }
 }

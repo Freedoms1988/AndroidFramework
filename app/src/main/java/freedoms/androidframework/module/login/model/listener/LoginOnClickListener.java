@@ -9,8 +9,11 @@ import freedoms.androidframework.module.login.iview.ILoginView;
 import freedoms.androidframework.tools.log.FLog;
 
 /**
- * Created by freedoms on 2017/3/13.
- */
+ * @Class LoginOnClickListener
+ * @Auther freedoms
+ * @Date 2018/5/23
+ * @Decription
+ **/
 
 public class LoginOnClickListener implements View.OnClickListener{
 
@@ -25,7 +28,7 @@ public class LoginOnClickListener implements View.OnClickListener{
         switch (v.getId()){
             case R.id.loginBTN:
                 loginPresenter.login();
-                FLog.debug("收到点击事件");
+                FLog.getInstance().debug("收到点击事件");
         }
 
     }

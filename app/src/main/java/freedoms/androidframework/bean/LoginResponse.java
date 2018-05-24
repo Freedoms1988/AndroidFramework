@@ -3,8 +3,11 @@ package freedoms.androidframework.bean;
 import freedoms.androidframework.base.FBaseResponse;
 
 /**
- * Created by freedoms on 2017/3/16.
- */
+ * @Class LoginResponse
+ * @Auther freedoms
+ * @Date 2018/5/23
+ * @Decription
+ **/
 
 public class LoginResponse extends FBaseResponse {
 }

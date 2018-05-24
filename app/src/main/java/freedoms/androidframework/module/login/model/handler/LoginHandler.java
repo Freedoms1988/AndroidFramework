@@ -6,8 +6,11 @@ import android.os.Message;
 import freedoms.androidframework.module.login.iview.ILoginView;
 
 /**
- * Created by freedoms on 2017/3/14.
- */
+ * @Class LoginHandler
+ * @Auther freedoms
+ * @Date 2018/5/23
+ * @Decription
+ **/
 
 public class LoginHandler extends Handler {
 

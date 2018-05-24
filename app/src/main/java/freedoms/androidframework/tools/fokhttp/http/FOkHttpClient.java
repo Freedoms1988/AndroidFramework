@@ -1,4 +1,4 @@
-package freedoms.androidframework.tools.fokhttp;
+package freedoms.androidframework.tools.fokhttp.http;
 
 import android.os.Build;
 
@@ -8,11 +8,8 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import freedoms.androidframework.tools.app.FApp;
-import freedoms.androidframework.tools.fokhttp.log.FOkHttpLogInterceptor;
-import freedoms.androidframework.tools.system.FSystem;
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -20,38 +17,17 @@ import okhttp3.Response;
 import freedoms.androidframework.base.FBaseRequest;
 
 /**
- * Created by freedoms on 2017/3/16.
- */
+ * @Class FOkHttpClient
+ * @Auther freedoms
+ * @Date 2018/5/24
+ * @Decription
+ **/
 
 public class FOkHttpClient implements IFOkHttpClient {
 
 	private static FOkHttpClient instance;
 
 	private static OkHttpClient client;
-
-	private static final MediaType MEDIA_TYPE_JSON = MediaType.parse("applaction/json;charset=utf-8");
-
-	private static final MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("text/x-markdown;charset=utf-8");
-
-	private static final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
-
-	private static final MediaType MEDIA_TYPE_JPEG = MediaType.parse("image/jpeg");
-
-	private static final MediaType MEDIA_TYPE_GIF = MediaType.parse("image/gif");
-
-	private static final MediaType MEDIA_TYPE_PLAIN = MediaType.parse("text/plain");
-
-	private static final MediaType MEDIA_TYPE_XHTML = MediaType.parse("application/xhtml+xml");
-
-	private static final MediaType MEDIA_TYPE_XML = MediaType.parse("application/xml");
-
-	private static final MediaType MEDIA_TYPE_ATOM_XML = MediaType.parse("application/atom+xml");
-
-	private static final MediaType MEDIA_TYPE_PDF = MediaType.parse("application/pdf");
-
-	private static final MediaType MEDIA_TYPE_WORD = MediaType.parse("application/msword");
-
-	private static final MediaType MEDIA_TYPE_STREAM = MediaType.parse("application/octet-stream");
 
 
 	private FOkHttpClient() {

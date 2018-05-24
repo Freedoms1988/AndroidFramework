@@ -1,11 +1,10 @@
 package freedoms.androidframework.tools.system;
 
 /**
- * @Class FSystem
+ * @interface IFSystem
  * @Auther freedoms
- * @Date 2018/5/23
+ * @Date 2018/5/24
  * @Decription
  **/
-public class FSystem implements IFSystem{
-
+public interface IFSystem {
 }

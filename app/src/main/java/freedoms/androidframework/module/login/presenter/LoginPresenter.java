@@ -6,8 +6,11 @@ import freedoms.androidframework.module.login.iview.ILoginView;
 import freedoms.androidframework.tools.log.FLog;
 
 /**
- * Created by freedoms on 2017/3/13.
- */
+ * @Class LoginOnClickListener
+ * @Auther freedoms
+ * @Date 2018/5/23
+ * @Decription
+ **/
 
 public class LoginPresenter {
     private ILoginAction mLoginAction;
@@ -21,7 +24,7 @@ public class LoginPresenter {
     public void login(){
         mLoginView.showHudLoading();
         mLoginAction.login(this.mLoginView);
-        FLog.debug("执行登录");
+        FLog.getInstance().debug("执行登录");
     }
 
     public void clearUsername(){

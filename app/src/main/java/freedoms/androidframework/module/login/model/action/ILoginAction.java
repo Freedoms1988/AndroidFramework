@@ -3,8 +3,11 @@ package freedoms.androidframework.module.login.model.action;
 import freedoms.androidframework.module.login.iview.ILoginView;
 
 /**
- * Created by freedoms on 2017/3/13.
- */
+ * @interface ILoginAction
+ * @Auther freedoms
+ * @Date 2018/5/23
+ * @Decription
+ **/
 
 public interface ILoginAction {
     /**

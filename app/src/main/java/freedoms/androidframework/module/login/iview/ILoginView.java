@@ -3,8 +3,12 @@ package freedoms.androidframework.module.login.iview;
 import freedoms.androidframework.base.IView;
 
 /**
- * Created by freedoms on 2017/3/13.
- */
+ * @interface ILoginView
+ * @Auther freedoms
+ * @Date 2018/5/23
+ * @Decription
+ **/
+
 
 public interface ILoginView extends IView{
     void loginSuccess();

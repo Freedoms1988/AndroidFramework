@@ -1,8 +1,12 @@
 package freedoms.androidframework.tools.db;
 
 /**
- * Created by freedoms on 2017/3/29.
- */
+ * @interface IFdbUtils
+ * @Auther freedoms
+ * @Date 2018/5/24
+ * @Decription
+ **/
 
 public interface IFdbUtils {
+
 }

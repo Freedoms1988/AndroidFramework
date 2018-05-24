@@ -1,10 +1,11 @@
 package freedoms.androidframework.base;
 
-import okhttp3.Response;
-
 /**
- * Created by freedoms on 2017/3/16.
- */
+ * @Class FBaseResponse
+ * @Auther freedoms
+ * @Date 2018/5/23
+ * @Decription
+ **/
 
 public class FBaseResponse{
 

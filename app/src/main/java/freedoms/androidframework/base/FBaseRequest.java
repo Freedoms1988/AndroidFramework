@@ -1,8 +1,11 @@
 package freedoms.androidframework.base;
 
 /**
- * Created by freedoms on 2017/3/16.
- */
+ * @Class FBaseRequest
+ * @Auther freedoms
+ * @Date 2018/5/23
+ * @Decription
+ **/
 
 public class FBaseRequest {
 

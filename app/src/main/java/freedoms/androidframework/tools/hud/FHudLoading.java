@@ -5,7 +5,14 @@ import android.text.TextUtils;
 
 import com.kaopiz.kprogresshud.KProgressHUD;
 
-public class FHudLoading {
+/**
+ * @Class FHudLoading
+ * @Auther freedoms
+ * @Date 2018/5/24
+ * @Decription
+ **/
+
+public class FHudLoading implements IFHudLoading{
     private static FHudLoading instance;
 
     private KProgressHUD kProgressHUD;

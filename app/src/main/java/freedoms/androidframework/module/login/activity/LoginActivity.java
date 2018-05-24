@@ -1,13 +1,11 @@
 package freedoms.androidframework.module.login.activity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import freedoms.androidframework.R;
 import freedoms.androidframework.base.FBaseActivity;
 import freedoms.androidframework.module.login.iview.ILoginView;
@@ -17,8 +15,11 @@ import freedoms.androidframework.tools.hud.FHudLoading;
 import freedoms.androidframework.tools.log.FLog;
 
 /**
- * Created by freedoms on 2017/3/13.
- */
+ * @Class LoginActivity
+ * @Auther freedoms
+ * @Date 2018/5/23
+ * @Decription
+ **/
 
 public class LoginActivity extends FBaseActivity implements ILoginView {
 
@@ -69,24 +70,24 @@ public class LoginActivity extends FBaseActivity implements ILoginView {
 
 	@Override
 	public void loginSuccess() {
-		FLog.debug("模拟登录成功");
+		FLog.getInstance().debug("模拟登录成功");
 	}
 
 	@Override
 	public void loginFailure() {
-		FLog.debug("模拟登录失败");
+		FLog.getInstance().debug("模拟登录失败");
 	}
 
 	@Override
 	public void clearUsername() {
 		usernameET.setText("");
-		FLog.debug("用户名删除成功");
+		FLog.getInstance().debug("用户名删除成功");
 	}
 
 	@Override
 	public void clearPassword() {
 		passwordET.setText("");
-		FLog.debug("密码删除成功");
+		FLog.getInstance().debug("密码删除成功");
 	}
 
 	@Override

@@ -7,8 +7,11 @@ import freedoms.androidframework.module.login.presenter.LoginPresenter;
 import freedoms.androidframework.module.login.iview.ILoginView;
 
 /**
- * Created by freedoms on 2017/3/14.
- */
+ * @Class ClearOnClickListener
+ * @Auther freedoms
+ * @Date 2018/5/23
+ * @Decription
+ **/
 
 public class ClearOnClickListener implements View.OnClickListener {
 
