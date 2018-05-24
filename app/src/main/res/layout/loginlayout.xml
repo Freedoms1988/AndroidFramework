@@ -31,7 +31,7 @@
         />
 
     <Button
-        android:id="@+id/loginBtn"
+        android:id="@+id/loginBTN"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:gravity="center"

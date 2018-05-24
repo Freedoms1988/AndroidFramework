@@ -1,7 +1,5 @@
 package freedoms.androidframework.module.login.presenter;
 
-import android.util.Log;
-
 import freedoms.androidframework.module.login.model.action.ILoginAction;
 import freedoms.androidframework.module.login.model.action.LoginAction;
 import freedoms.androidframework.module.login.iview.ILoginView;

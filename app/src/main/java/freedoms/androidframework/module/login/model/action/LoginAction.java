@@ -1,7 +1,6 @@
 package freedoms.androidframework.module.login.model.action;
 
 import android.os.Message;
-import android.util.Log;
 
 import java.io.IOException;
 

@@ -1,17 +1,17 @@
 package freedoms.androidframework.tools.fokhttp;
 
+import android.os.Build;
 
 import com.google.gson.Gson;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import freedoms.androidframework.tools.app.FApp;
 import freedoms.androidframework.tools.fokhttp.log.FOkHttpLogInterceptor;
+import freedoms.androidframework.tools.system.FSystem;
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -76,7 +76,7 @@ public class FOkHttpClient implements IFOkHttpClient {
 
 	@Override
 	public void getWithJSON(String url, final FRequestCallBack callBack) {
-		final Request getRequest = new Request.Builder().url(url).build();
+		final Request getRequest = new Request.Builder().url(url).removeHeader("User-Agent").addHeader("User-Agent",getUserAgent(okhttp3.internal.Version.userAgent())).build();
 		Call call = client.newCall(getRequest);
 		call.enqueue(new Callback() {
 			@Override
@@ -94,7 +94,7 @@ public class FOkHttpClient implements IFOkHttpClient {
 	@Override
 	public void postWithJSON(String url, FBaseRequest request, final FRequestCallBack callBack) {
 		RequestBody requestBody = RequestBody.create(MEDIA_TYPE_JSON, requestToJson(request));
-		final Request postRequest = new Request.Builder().url(url).post(requestBody).build();
+		final Request postRequest = new Request.Builder().url(url).post(requestBody).removeHeader("User-Agent").addHeader("User-Agent",getUserAgent(okhttp3.internal.Version.userAgent())).build();
 		Call call = client.newCall(postRequest);
 		call.enqueue(new Callback() {
 			@Override
@@ -112,7 +112,7 @@ public class FOkHttpClient implements IFOkHttpClient {
 	@Override
 	public void putWithJSON(String url, FBaseRequest request, final FRequestCallBack callBack) {
 		RequestBody requestBody=RequestBody.create(MEDIA_TYPE_JSON,requestToJson(request));
-		final Request putRequest=new Request.Builder().url(url).put(requestBody).build();
+		final Request putRequest=new Request.Builder().url(url).put(requestBody).removeHeader("User-Agent").addHeader("User-Agent",getUserAgent(okhttp3.internal.Version.userAgent())).build();
 		Call call=client.newCall(putRequest);
 		call.enqueue(new Callback() {
 			@Override
@@ -130,7 +130,7 @@ public class FOkHttpClient implements IFOkHttpClient {
 	@Override
 	public void deleteWithJSON(String url, FBaseRequest request, final FRequestCallBack callBack) {
 		RequestBody requestBody=RequestBody.create(MEDIA_TYPE_JSON,requestToJson(request));
-		final Request deleteRequest=new Request.Builder().url(url).delete(requestBody).build();
+		final Request deleteRequest=new Request.Builder().url(url).delete(requestBody).removeHeader("User-Agent").addHeader("User-Agent",getUserAgent(okhttp3.internal.Version.userAgent())).build();
 		Call call=client.newCall(deleteRequest);
 		call.enqueue(new Callback() {
 			@Override
@@ -158,4 +158,29 @@ public class FOkHttpClient implements IFOkHttpClient {
 		return new Gson().fromJson(json,clazz);
 	}
 
+
+	private String getUserAgent(String okhttpUserAgent) {
+		String userAgent = "";
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+			try {
+				userAgent = System.getProperty("http.agent");
+			} catch (Exception e) {
+				userAgent = System.getProperty("http.agent");
+			}
+		} else {
+			userAgent = System.getProperty("http.agent");
+		}
+		String[] string=userAgent.split("\\(");
+		String string2= FApp.getClientVersion()+" "+okhttpUserAgent+" "+"("+string[1];
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0, length = string2.length(); i < length; i++) {
+			char c = string2.charAt(i);
+			if (c <= '\u001f' || c >= '\u007f') {
+				sb.append(String.format("\\u%04x", (int) c));
+			} else {
+				sb.append(c);
+			}
+		}
+		return sb.toString();
+	}
 }

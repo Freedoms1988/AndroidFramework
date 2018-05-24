@@ -1,9 +1,5 @@
 package freedoms.androidframework.tools.fokhttp.log;
 
-import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
-
 import java.io.IOException;
 
 import freedoms.androidframework.tools.log.FLog;
@@ -27,6 +23,7 @@ public class FOkHttpLogInterceptor implements Interceptor {
 		Response response=null;
 		FLog.debug("=============请求信息=============");
 		FLog.debug("请求地址："+request.url().toString());
+		FLog.debug("请求方式："+request.method());
 		FLog.debug("请求头："+request.headers().toString());
 		FLog.debug("请求杂项："+chain.connection());
 		FLog.debug("================================");

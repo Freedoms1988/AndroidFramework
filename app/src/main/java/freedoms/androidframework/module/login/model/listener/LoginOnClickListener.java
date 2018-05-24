@@ -1,7 +1,6 @@
 package freedoms.androidframework.module.login.model.listener;
 
 
-import android.util.Log;
 import android.view.View;
 
 import freedoms.androidframework.R;
@@ -24,7 +23,7 @@ public class LoginOnClickListener implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.loginBtn:
+            case R.id.loginBTN:
                 loginPresenter.login();
                 FLog.debug("收到点击事件");
         }

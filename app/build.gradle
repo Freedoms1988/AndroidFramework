@@ -31,4 +31,6 @@ dependencies {
     implementation 'org.greenrobot:greendao:3.2.+'
     implementation 'org.greenrobot:eventbus:3.0.+'
     implementation 'com.kaopiz:kprogresshud:1.0.+'
+    implementation 'com.jakewharton:butterknife:8.4.+'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.+'
 }
