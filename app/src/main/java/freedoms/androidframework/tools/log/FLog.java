@@ -10,7 +10,7 @@ import android.util.Log;
  **/
 public class FLog implements IFlog{
 
-	private static FLog instance;
+	private volatile static FLog instance;
 
 	private FLog(){
 
@@ -19,7 +19,9 @@ public class FLog implements IFlog{
 	public static FLog getInstance(){
 		if (instance==null){
 			synchronized (FLog.class){
-				instance=new FLog();
+				if (instance==null){
+					instance=new FLog();
+				}
 			}
 		}
 		return instance;

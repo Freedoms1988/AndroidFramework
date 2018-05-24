@@ -13,13 +13,17 @@ import com.kaopiz.kprogresshud.KProgressHUD;
  **/
 
 public class FHudLoading implements IFHudLoading{
-    private static FHudLoading instance;
+    private volatile static FHudLoading instance;
 
     private KProgressHUD kProgressHUD;
 
     public static FHudLoading getInstance(){
         if (instance==null){
-            instance=new FHudLoading();
+            synchronized (FHudLoading.class){
+                if (instance==null){
+                    instance=new FHudLoading();
+                }
+            }
         }
         return instance;
     }

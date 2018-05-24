@@ -10,12 +10,14 @@ import android.app.Application;
  **/
 public class FApplication extends Application {
 
-	public static FApplication instance;
+	public volatile static FApplication instance;
 
 	public static FApplication getInstance(){
 		if (instance==null){
 			synchronized (FApplication.class){
-				instance=new FApplication();
+				if (instance==null){
+					instance=new FApplication();
+				}
 			}
 		}
 		return instance;

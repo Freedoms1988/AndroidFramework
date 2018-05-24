@@ -25,7 +25,7 @@ import freedoms.androidframework.base.FBaseRequest;
 
 public class FOkHttpClient implements IFOkHttpClient {
 
-	private static FOkHttpClient instance;
+	private volatile static FOkHttpClient instance;
 
 	private static OkHttpClient client;
 

@@ -15,7 +15,7 @@ import okhttp3.Response;
 
 public class FOkHttpLog implements IFOkHttpLog{
 
-	private static FOkHttpLog instance;
+	private volatile static FOkHttpLog instance;
 
 	private FOkHttpLog(){
 
@@ -24,7 +24,9 @@ public class FOkHttpLog implements IFOkHttpLog{
 	public static FOkHttpLog getInstance(){
 		if(instance==null){
 			synchronized (FOkHttpLog.class){
-				instance=new FOkHttpLog();
+				if (instance==null){
+					instance=new FOkHttpLog();
+				}
 			}
 		}
 		return instance;
