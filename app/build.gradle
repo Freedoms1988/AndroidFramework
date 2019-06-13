@@ -33,8 +33,4 @@ dependencies {
     implementation 'com.kaopiz:kprogresshud:1.0.+'
     implementation 'com.jakewharton:butterknife:8.4.+'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.+'
-
-    androidTestImplementation 'com.android.support:support-annotations:23.1.1'
-    androidTestImplementation 'com.android.support.test:runner:0.4.1'
-    androidTestImplementation 'com.android.support.test:rules:0.4.1'
 }
