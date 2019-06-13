@@ -1,2 +1,0 @@
-# AndroidFramework
-Freedoms的Android客户端基础框架
