@@ -34,5 +34,5 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.4.+'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.+'
 
-    implementation group: 'org.junit', name: 'junit-gradle', version: '5.0.0-ALPHA'
+    testImplementation "junit:junit:4.12"
 }
